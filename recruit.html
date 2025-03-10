@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="アルフィオンの採用情報ページです。生成AI技術を活用して企業のDX推進を支援し、より効率的で創造的な未来を築く仲間を募集しています。">
+    <title>採用情報｜株式会社アルフィオン (Alfion)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #7D17BE;
+            --primary-light: #9B4FD3;
+            --primary-dark: #6012A2;
+            --text: #333333;
+            --text-light: #666666;
+            --background: #FFFFFF;
+            --background-alt: #F8F8F8;
+            --border: #EEEEEE;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--background);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 32px;
+            width: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #7D17BE;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-outline {
+            border: 1px solid #7D17BE;
+            color: #7D17BE;
+        }
+
+        .btn-outline:hover {
+            background-color: #7D17BE;
+            color: white;
+        }
+
+        .btn-primary {
+            background-color: #7D17BE;
+            color: white;
+        }
+
+        .btn-primary:hover {
+    background-color: #6a14a3; 
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            background-image: url(herobackground.jpg);
+            background-size: cover;
+            color: white;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+        /* Message Section */
+        .message {
+            padding: 8rem 0;
+            background: white;
+        }
+
+        .message-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .message-content {
+            max-width: 500px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        .message-text {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .message-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        /* Mission & Vision Sections */
+        .mission-vision {
+            padding: 100px 0;
+            background: var(--background-alt);
+        }
+
+        .mission-vision-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        .mission-box, .vision-box {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .mission-box:hover, .vision-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .box-label {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .box-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
+
+        .box-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+        
+        /* Values Section */
+        .values {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            background: var(--background-alt);
+            padding: 2rem;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            background: var(--primary);
+            color: white;
+        }
+
+        .value-card:hover .value-title {
+            color: white;
+        }
+
+        .value-title {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .value-text {
+            line-height: 1.6;
+        }
+
+        /* Positions Section */
+        .positions {
+            padding: 100px 0;
+            background: var(--background-alt);
+        }
+
+        .position-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .position-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .position-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .position-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .position-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(125, 23, 190, 0.3);
+        }
+                /* Process Section */
+        .process {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        
+        .process-step {
+            text-align: center;
+            padding: 2rem;
+            background: var(--background-alt);
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .process-step:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: -1rem;
+            width: 2rem;
+            height: 2px;
+            background: var(--border);
+            transform: translateY(-50%);
+        }
+
+        .step-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+                /* CTA Section */
+                .cta {
+            padding: 100px 0;
+            background: linear-gradient(45deg, var(--primary), var(--primary-light));
+            color: white;
+            text-align: center;
+            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+        }
+
+        .cta-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-white:hover {
+            background: var(--background-alt);
+            color: var(--primary-dark);
+        }
+
+                /* Footer */
+                footer {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-logo {
+            filter: brightness(0) invert(1);
+            height: 32px;
+            width: auto;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #999;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid #333;
+            color: #999;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+    .header-buttons .btn-outline {
+        display: none
+    }
+}
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .position-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .box-title {
+                font-size: 1.5rem;
+            }
+        }
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .header-buttons .btn-outline {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+                padding: 0 2rem;
+            }
+        }
+
+    </style>
+    </head>
+    <body>
+        <header>
+            <div class="header-container">
+                <a href="/">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202024-12-12%2017.29.24-dNXjP888HhN7IqHcdyB7m1hOWk5pzX.png" alt="Alfion" class="logo">
+                </a>
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="https://alfion.jp/#services">事業紹介</a></li>
+                        <li><a href="https://alfion.jp/#cases">サービス事例</a></li>
+                        <li><a href="https://alfion.jp/#media">AI関連記事</a></li>
+                        <li><a href="https://alfion.jp/#recruit">採用情報</a></li>
+                    </ul>
+                </nav>
+                <div class="header-buttons">
+                    <a href="https://alfion.jp/download" class="btn btn-outline">お役立ち資料</a>
+                    <a href="https://alfion.jp/contact" class="btn btn-primary">お問い合わせ</a>
+                </div>
+            </div>
+        </header>
+    
+        <section class="hero">
+            <div class="container hero-content">
+                <h1 class="hero-title">Redefining the Future<br>Every Day</h1>
+                <p class="hero-subtitle">アルフィオンは生成AI技術を活用して企業のDX推進を支援し、より良い未来の可能性を開くことを目指しています。</p>
+            </div>
+        </section>
+        <section class="message">
+            <div class="container">
+                <div class="message-grid">
+                    <div class="message-content">
+                        <h2 class="section-title">Message</h2>
+                        <p class="message-text">
+                            アルフィオンは2025年に創業され、メンバーは20代を中心とした急成長中の東大発DXベンチャーです
+                        </p>
+                        <p class="message-text">
+                            アルフィオンでは東大生を中心に優秀なメンバーが、最新のテクノロジーを活用し、
+                            クライアントにとって最適なソリューションを提供できるよう、日々改善を重ねています
+                        </p>
+                        <p class="message-text">
+                            アルフィオンは共に走り、新たな未来を切り開く仲間を募集しています。
+                        </p>
+                    </div>
+                    <img src="annie-spratt-QckxruozjRg-unsplash.jpg" alt="Office Culture" class="message-image">
+                </div>
+            </div>
+        </section>
+        <section class="mission-vision">
+            <div class="container mission-vision-container">
+                <div class="mission-box">
+                    <div class="box-label">Mission</div>
+                    <h2 class="box-title">Redefine the Future</h2>
+                    <p class="box-text">アルフィオンが果たすべき使命は、情報技術の活用により労働生産性を向上させ、より良い未来の可能性を開くことです</p>
+                </div>
+                <div class="vision-box">
+                    <div class="box-label">Vision</div>
+                    <h2 class="box-title">From Innovation to Implementation</h2>
+                    <p class="box-text">アルフィオンは日々進化するテクノロジーをいち早く捉え、ビジネスにおける効果的な活用法を見極め、先端技術を社会に実装する存在になります</p>
+                </div>
+            </div>
+        </section>
+    
+        <section class="values">
+            <div class="container">
+                <h2 class="section-title">アルフィオンの行動指針</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <h3 class="value-title">Customer First</h3>
+                        <p class="value-text">全ての仕事は顧客に価値を提供するためにある</p>
+                    </div>
+                    <div class="value-card">
+                        <h3 class="value-title">Strive for Excellence</h3>
+                        <p class="value-text">常に改善を続け、最高の状態を目指す</p>
+                    </div>
+                    <div class="value-card">
+                        <h3 class="value-title">Just Do It</h3>
+                        <p class="value-text">すぐやる、必ずやる、できるまでやる</p>
+                    </div>
+                    <div class="value-card">
+                        <h3 class="value-title">Win as a Team</h3>
+                        <p class="value-text">独りよがりにならず、周りの力を活用して大きな成果を挙げよう</p>
+                    </div>
+                    <div class="value-card">
+                        <h3 class="value-title">Adhere to Principles</h3>
+                        <p class="value-text">当たり前のことを当たり前にやる</p>
+                    </div>
+                    <div class="value-card">
+                        <h3 class="value-title">Can Do Mindset</h3>
+                        <p class="value-text">最後は根性。為せば成る</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section class="positions">
+            <div class="container">
+                <h2 class="section-title">募集職種</h2>
+                <div class="position-card">
+                    <h3 class="position-title">AIエンジニア</h3>
+                    <div class="position-meta">
+                        <span>雇用形態：正社員 / 業務委託</span>
+                        <span>勤務地：東京 / リモート</span>
+                        <span>給与：応相談</span>
+                    </div>
+                    <p class="position-description">生成AI技術を活用したプロダクト開発やシステム構築を担当していただきます。最新のAI技術に触れながら、革新的なソリューションを生み出すことができます。</p>
+                    <a href="#" class="btn">カジュアル面談</a>
+                </div>
+                <div class="position-card">
+                    <h3 class="position-title">DXコンサルタント</h3>
+                    <div class="position-meta">
+                        <span>雇用形態：正社員 / 業務委託</span>
+                        <span>勤務地：東京</span>
+                        <span>給与：応相談</span>
+                    </div>
+                    <p class="position-description">クライアント企業のAI導入支援やDX推進のコンサルティングを担当していただきます。技術的な知識と共に、ビジネス視点での提案力が求められます。</p>
+                    <a href="#" class="btn">カジュアル面談</a>
+                </div>
+            </div>
+        </section>
+    
+        <section class="process">
+            <div class="container">
+                <h2 class="section-title">採用の流れ</h2>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">01</div>
+                        <h3>カジュアル面談</h3>
+                        <p>会社の目指す方向や業務の内容についてカジュアルにお話しさせていただきます。</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">02</div>
+                        <h3>書類選考</h3>
+                        <p>エントリーシートを提出していただき、書類選考を実施いたします。</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">03</div>
+                        <h3>面接</h3>
+                        <p>書類選考を突破された方には面接を実施させていただきます。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section class="cta">
+            <div class="container">
+                <h2 class="cta-title">カジュアル面談は随時受付中！</h2>
+                <a href="#" class="btn btn-white">申し込みフォーム</a>
+            </div>
+        </section>
+        <footer>
+            <div class="footer-container">
+                <div class="footer-section">
+                    <p>
+                        株式会社アルフィオン<br>
+                        〒000-0000<br>
+                        東京都千代田区
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>サービス</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">事業紹介</a></li>
+                        <li><a href="#cases">サービス事例</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>会社情報</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about">会社概要</a></li>
+                        <li><a href="#recruit">採用情報</a></li>
+                        <li><a href="#contact">お問い合わせ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Alfion Inc. All rights reserved.</p>
+            </div>
+        </footer>
+    
+        <script>
+            // Header scroll effect
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('header');
+                if (window.scrollY > 100) {
+                    header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+                } else {
+                    header.style.boxShadow = 'none';
+                }
+            });
+    
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        </script>
+    </body>
+    </html>
