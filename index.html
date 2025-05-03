@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="株式会社アルフィオンは、生成AIを用いた業務効率化に伴走する東大発DXベンチャー企業です。">
+    <meta name="keywords" content="生成AI,東大,システム開発,アルフィオン,Alfion">
+    <title>株式会社アルフィオン (Alfion)</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 32px;
+            width: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #7D17BE;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-outline {
+            border: 1px solid #7D17BE;
+            color: #7D17BE;
+        }
+
+        .btn-outline:hover {
+            background-color: #7D17BE;
+            color: white;
+        }
+
+        .btn-primary {
+            background-color: #7D17BE;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #6a14a3;
+        }
+
+        /* Hero section */
+        .hero {
+            height: 90vh;
+            background-image: url(malte-schmidt-enGr5YbjQKQ-unsplash.jpg);
+            background-size: cover;
+            padding-top: 80px;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            color: white;
+        }
+
+        .hero-text {
+            font-size: 1.25rem;
+            color: white;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            font-weight: 550;
+        }
+
+        /* Services section */
+        .services {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .service-card {
+            padding: 2rem;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            transition: box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+                /* Add these new styles to the existing <style> tag */
+.service-section {
+    padding: 30px 5%;
+    position: relative;
+    border-top: 1px solid #eee;
+}
+
+.services-header {
+    margin: 0 auto;
+    max-width: 1200px;
+    margin-bottom: 4rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.services-title {
+    font-size: 3.7rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.services-title span {
+    font-size: 1.3rem;
+    font-weight: normal;
+}
+
+.service-number {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: bold;
+    opacity: 0.1;
+    margin-bottom: 2rem;
+    transition: opacity 0.3s ease;
+}
+
+.service-section:hover .service-number {
+    opacity: 0.2;
+}
+
+.service-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1rem;
+    align-items: start;
+}
+
+.service-title {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    margin-bottom: 1rem;
+}
+
+
+.service-subtitle {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.service-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.service-icon {
+    position: absolute;
+    right: 5%;
+    top: 80px;
+    width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+}
+
+.service-section:hover .service-icon {
+    border-color: #7D17BE;
+    transform: rotate(360deg);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.service-section {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.service-section:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.service-section:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@media (max-width: 768px) {
+    .service-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .service-icon {
+        position: relative;
+        top: 0;
+        right: 0;
+        margin-bottom: 2rem;
+    }
+}
+    
+         /* case styles */
+        .cases {
+            padding: 5rem 0;
+            background: #f5f5f5;
+        }
+
+        .cases-header {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        margin-bottom: 3rem;
+    }
+    
+    .cases-title {
+        font-size: 4rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .cases-title span {
+        font-size: 1.5rem;
+        font-weight: normal;
+    }
+    
+    .cases-subtitle {
+        text-align: left;
+        font-size: 1.1rem;
+    }
+
+        .case-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .case-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .case-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .case-logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            min-height: 60px;
+        }
+
+        .case-logos img {
+            height: 40px;
+            width: auto;
+        }
+
+        .case-type {
+            color: #7D17BE;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .case-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .case-description {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .case-link {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .case-link:hover {
+            color: #7D17BE;
+        }
+
+        .case-link::after {
+            content: '+';
+            margin-left: 0.5rem;
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .case-link:hover::after {
+            transform: rotate(45deg);
+        }
+    
+    .view-more-button {
+        display: block;
+        width: fit-content;
+        margin: 3rem auto 0;
+        padding: 0.75rem 2rem;
+        background: transparent;
+        border: 1px solid #7D17BE;
+        color: #7D17BE;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: all 0.3s;
+        text-decoration: none;
+    }
+    
+    .view-more-button:hover {
+        background: #7D17BE;
+        color: white;
+    }
+    
+    
+    @media (max-width: 768px) {
+        .cases-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .case-card:not(:last-child)::after {
+            display: none;
+        }
+        
+        .case-card:not(:last-child) {
+            border-bottom: 1px solid #e5e5e5;
+        }
+    
+        .cases-title {
+            font-size: 3rem;
+        }
+    
+        .cases-subtitle {
+            text-align: left;
+        }
+    }
+
+        /* Media section */
+.media {
+    padding: 8rem 0;
+    background: var(--background-alt);
+}
+
+.media-header {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    margin-bottom: 6rem;
+}
+
+.media-title {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.media-title span {
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+
+.media-subtitle {
+    font-size: 2.5rem;
+    line-height: 1.4;
+    margin-bottom: 2rem;
+}
+
+.media-description {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    max-width: 800px;
+}
+
+.media-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.media-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.media-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.media-card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.media-card-content {
+    padding: 1.5rem;
+}
+
+.media-card-tag {
+    display: inline-block;
+    padding: 0.25rem 1rem;
+    border: 1px solid #7D17BE;
+    border-radius: 4px;
+    color: #7D17BE;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.media-card-date {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.media-card-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+.view-all-button {
+    display: block;
+    width: fit-content;
+    margin: 4rem auto 0;
+    padding: 1rem 3rem;
+    background: transparent;
+    border: 1px solid #7D17BE;
+    color: #7D17BE;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.view-all-button:hover {
+    background: #7D17BE;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .media-title {
+        font-size: 3rem;
+    }
+    
+    .media-subtitle {
+        font-size: 2rem;
+    }
+}
+        /* Recruit section */
+.recruit {
+    padding: 8rem 0;
+    background: #f5f5f5;
+    position: relative;
+    overflow: hidden;
+}
+
+.recruit-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.recruit-header {
+    margin-bottom: 4rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.recruit-title {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.recruit-title span {
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+
+.recruit-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+    align-items: center;
+}
+
+.recruit-content {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease 0.2s forwards;
+}
+
+.recruit-heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 1.4;
+    margin-bottom: 2rem;
+}
+
+.recruit-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    color: #666;
+}
+
+.recruit-image-wrapper {
+    position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease 0.4s forwards;
+}
+
+.recruit-image {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.recruit-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #7D17BE;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.recruit-button {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background: #7D17BE;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    margin-top: 2rem;
+    transition: all 0.3s ease;
+}
+
+.recruit-button:hover {
+    background: #9B4FD3;
+    transform: translateY(-2px);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .recruit-title {
+        font-size: 3rem;
+    }
+
+    .recruit-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .recruit-heading {
+        font-size: 2rem;
+    }
+
+    .recruit-stats {
+        grid-template-columns: 1fr;
+    }
+}
+        /* Contact section */
+        .contact {
+            padding: 5rem 0;
+            background-color: #ffffff;
+            text-align: center;
+        }
+
+        .contact-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-logo {
+            filter: brightness(0) invert(1);
+            height: 32px;
+            width: auto;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #999;
+            text-decoration: none;
+            transition: color 0.3s;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid #333;
+            color: #999;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .header-buttons .btn-outline {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+                padding: 0 2rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="/">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202024-12-12%2017.29.24-dNXjP888HhN7IqHcdyB7m1hOWk5pzX.png" alt="Alfion" class="logo">
+            </a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#services">事業紹介</a></li>
+                    <li><a href="#cases">サービス事例</a></li>
+                    <li><a href="#media">AI関連記事</a></li>
+                    <li><a href="#recruit">採用情報</a></li>
+                </ul>
+            </nav>
+            <div class="header-buttons">
+                <a href="https://alfion.jp/download" class="btn btn-outline">お役立ち資料</a>
+                <a href="https://alfion.jp/contact" class="btn btn-primary">お問い合わせ</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Together,<br>
+                We Achieve More
+            </h1>
+            <p class="hero-text">
+                東大発DX企業のアルフィオンは最新のAI技術を活用し、クライアントの業務効率化に伴走します
+            </p>
+            <a href="https://alfion.jp/contact" class="btn btn-primary">お問い合わせ</a>
+        </div>
+    </section>
+
+<section class="services" id="services">
+    <div class="services-header">
+        <h2 class="services-title">
+            SERVICE <span>事業内容</span>
+        </h1>
+    </div>
+
+    <section class="service-section">
+        <div class="service-number">01</div>
+        <div class="service-content">
+            <div class="service-header">
+                <h2 class="service-title">DXコンサルティング</h2>
+                <p class="service-subtitle">Digital Transformation Consulting</p>
+            </div>
+            <div class="service-body">
+                <p class="service-description">
+                    アルフィオンは、生成AIを活用し業務を改善することを目的としたDXコンサルティングを提供しています。
+                    生成AIを用いた業務改善を数多く行ってきた専門家がDXに伴走し、クライアントの業務効率化・事業成長に貢献します。
+                </p>
+            </div>
+        </div>
+        <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+        </div>
+    </section>
+
+    <section class="service-section">
+        <div class="service-number">02</div>
+        <div class="service-content">
+            <div class="service-header">
+                <h2 class="service-title">システム開発</h2>
+                <p class="service-subtitle">Software Development</p>
+            </div>
+            <div class="service-body">
+                <p class="service-description">
+                    アルフィオンが提供するソフトウェア開発サービスでは、クライアントにオーダーメイドのシステムを提供します。
+                    開発経験豊富なチームが生成AIを活用し、高品質なシステムを高速に納品します。
+                </p>
+            </div>
+        </div>
+        <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+            </svg>
+        </div>
+    </section>
+
+    <section class="service-section">
+        <div class="service-number">03</div>
+        <div class="service-content">
+            <div class="service-header">
+                <h2 class="service-title">生成AI研修・導入支援</h2>
+                <p class="service-subtitle">Generative AI training and implementation support</p>
+            </div>
+            <div class="service-body">
+                <p class="service-description">
+                    アルフィオンが提供する生成AI研修・導入支援サービスは、AI技術の基礎理解と実践的な活用を支援します。
+                    実務に特化し幅広い活用事例に精通している専門家の知見により、企業の業務効率化や新規ビジネスの創出をサポートします。
+                </p>
+            </div>
+        </div>
+        <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 3v19M5 8l14 8M5 16l14-8"/>
+            </svg>
+        </div>
+    </section>
+</section>
+
+    <section class="cases" id="cases">
+        <div class="cases-header">
+            <h2 class="cases-title">
+                CASE <span>事例</span>
+            </h2>
+            <p class="cases-subtitle">
+                これまでにアルフィオンが支援したお客様の事例の一部をご紹介します。
+            </p>
+        </div>
+        <div class="case-grid">
+            <article class="case-card" data-category="development">
+                <div class="case-logos">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-01-21%2017.16.22-lNdKsriXAEoLk9pUnEJxz76G3c0bqr.png" alt="Blue Lab">
+                    <span>×</span>
+                    <img src="alfion-logo.png" alt="Alfion">
+                </div>
+                <p class="case-type">システム開発</p>
+                <h2 class="case-title">請求書の電子帳簿保存を自動化</h2>
+                <p class="case-description">
+                    株式会社◯◯様 - 経理業務を一部自動化するシステムを開発しました
+                </p>
+                <a href="/cases/bluelab" class="case-link">VIEW DETAILS</a>
+            </article>
+
+            <article class="case-card" data-category="consulting">
+                <div class="case-logos">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-01-21%2017.16.22-lNdKsriXAEoLk9pUnEJxz76G3c0bqr.png" alt="Blue Lab">
+                    <span>×</span>
+                    <img src="alfion-logo.png" alt="Alfion">
+                </div>
+                <p class="case-type">コンサルティング</p>
+                <h2 class="case-title">SEOメディアの作成を生成AIで効率化</h2>
+                <p class="case-description">
+                    株式会社◯◯様 - SEOメディアの作成・記事執筆等における生成AI活用コンサルティングを提供しました
+                </p>
+                <a href="/cases/rag-chatbot" class="case-link">VIEW DETAILS</a>
+            </article>
+
+            <article class="case-card" data-category="development">
+                <div class="case-logos">
+                    <img src="/placeholder.svg?height=40&width=40" alt="Hotel">
+                    <span>×</span>
+                    <img src="alfion-logo.png" alt="Alfion">
+                </div>
+                <p class="case-type">システム開発</p>
+                <h2 class="case-title">問い合わせ対応業務を対話型AIの導入で低減</h2>
+                <p class="case-description">
+                    株式会社◯◯様 - 社内文書を参照し回答を生成する対話型AIを開発しました
+                </p>
+                <a href="/cases/restaurant-concierge" class="case-link">VIEW DETAILS</a>
+            </article>
+        </div>
+
+        <a href="https://alfion.jp/case" class="view-more-button">View All Cases</a>
+    </section> 
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-button');
+            const caseCards = document.querySelectorAll('.case-card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    button.classList.add('active');
+
+                    const filterValue = button.getAttribute('data-filter');
+
+                    caseCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 10);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+    <section class="media" id="media">
+        <div class="media-header">
+            <h2 class="media-title">
+                MEDIA <span>オウンドメディア</span>
+            </h2>
+            <h3 class="media-subtitle">
+                生成AIを<br>
+                実戦で使うための<br>
+                情報を発信していく
+            </h3>
+            <p class="media-description">
+                アルフィオンのオウンドメディアは、業界業種別の生成AIの活用の事例などを発信しています。<br>
+                生成AI活用の最前線で活躍する専門家による洞察や実践的なガイドを提供し、企業や個人がAIを効果的に活用するためのサポートを行います。
+            </p>
+        </div>
+        <div class="media-grid">
+            <article class="media-card">
+                <img src="construction.jpg" alt="construction" class="media-card-image">
+                <div class="media-card-content">
+                    <span class="media-card-tag">業界別活用事例</span>
+                    <div class="media-card-date">2025/1/6</div>
+                    <h3 class="media-card-title">建設業界でのAI導入事例6選 | DX推進で人手不足に対応&コスト削減</h3>
+                    <a href="https://alfion.jp/media/1" class="case-link">Read</a>
+                </div>
+            </article>
+            <article class="media-card">
+                <img src="response.jpg" alt="response center" class="media-card-image">
+                <div class="media-card-content">
+                    <span class="media-card-tag">業種別活用事例</span>
+                    <div class="media-card-date">2024/12/9</div>
+                    <h3 class="media-card-title">【生成AIで問い合わせ対応を自動化】メリットや事例を徹底解説！</h3>
+                    <a href="/cases/restaurant-concierge" class="case-link">Read</a>
+                </div>
+            </article>
+            <article class="media-card">
+                <img src="hospital.jpg" alt="hospital" class="media-card-image">
+                <div class="media-card-content">
+                    <span class="media-card-tag">業界別活用事例</span>
+                    <div class="media-card-date">2024/12/8</div>
+                    <h3 class="media-card-title">AIが医療を変える！医療現場でのChatGPTの活用方法</h3>
+                    <a href="/cases/restaurant-concierge" class="case-link">Read</a>
+                </div>
+            </article>
+        </div>
+        <a href="https://alfion.jp/media" class="view-all-button">記事の一覧はこちら</a>
+    </section> 
+
+<section class="recruit" id="recruit">
+    <div class="recruit-container">
+        <div class="recruit-header">
+            <h2 class="recruit-title">
+                RECRUIT <span>採用情報</span>
+            </h2>
+        </div>
+        <div class="recruit-grid">
+            <div class="recruit-content">
+                <h3 class="recruit-heading">
+                    未来を創る<br>
+                    仲間を募集しています
+                </h3>
+                <p class="recruit-text">
+                    アルフィオンは、生成AIを活用して企業のDX推進を支援し、
+                    より良い未来の可能性を開くことを目指しています。
+                </p>
+                <p class="recruit-text">
+                    急成長中のベンチャーで成長したい方、最新のテクノロジーを実装し社会を変えたい方、ぜひご応募ください。
+                </p>
+                <a href="https://alfion.jp/recruit" class="recruit-button">採用情報を見る</a>
+            </div>
+            <div class="recruit-image-wrapper">
+                <img src="charlesdeluvio-Lks7vei-eAg-unsplash.jpg" alt="Team Meeting" class="recruit-image">
+            </div>
+        </div>
+        <div class="recruit-stats">
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">AI開発実績</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">80%</div>
+                <div class="stat-label">エンジニア比率</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">リモートワーク可</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section class="contact" id="contact">
+        <h2 class="section-title">お問い合わせ</h2>
+        <p>AIによるDX推進についてのご相談は、お気軽にお問い合わせください。</p>
+        <div class="contact-buttons">
+            <a href="https://alfion.jp/contact" class="btn btn-primary">お問い合わせ</a>
+            <a href="https://alfion.jp/download" class="btn btn-outline">お役立ち資料</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <p>
+                    株式会社アルフィオン<br>
+                    〒000-0000<br>
+                    東京都千代田区
+                </p>
+            </div>
+            <div class="footer-section">
+                <h3>サービス</h3>
+                <ul class="footer-links">
+                    <li><a href="#services">事業紹介</a></li>
+                    <li><a href="#cases">サービス事例</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>会社情報</h3>
+                <ul class="footer-links">
+                    <li><a href="#about">会社概要</a></li>
+                    <li><a href="#recruit">採用情報</a></li>
+                    <li><a href="#contact">お問い合わせ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Alfion Inc. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
