@@ -9,477 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #7D17BE;
-            --primary-light: #9B4FD3;
-            --text: #333333;
-            --text-light: #666666;
-            --background: #FFFFFF;
-            --background-alt: #F8F8F8;
-            --border: #EEEEEE;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Noto Sans JP', sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background: var(--background);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        main.container {
-            padding-top: 100px; /* Increased padding for fixed header */
-        }
-
-        /* Header styles */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 1rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            z-index: 1000;
-        }
-
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            height: 32px;
-            width: auto;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: #333;
-            transition: color 0.3s;
-        }
-
-        .nav-menu a:hover {
-            color: #7D17BE;
-        }
-
-        .header-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .btn-outline {
-            border: 1px solid #7D17BE;
-            color: #7D17BE;
-        }
-
-        .btn-outline:hover {
-            background-color: #7D17BE;
-            color: white;
-        }
-
-        .btn-primary {
-            background-color: #7D17BE;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: #6a14a3;
-        }
-
-        /* Search */
-        .search-container {
-            margin: 2rem 0;
-            position: relative;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 1rem 1.5rem;
-            border: 2px solid var(--border);
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(125, 23, 190, 0.1);
-        }
-
-        /* Loading state for search */
-        .search-container.loading::after {
-            content: "";
-            position: absolute;
-            right: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--border);
-            border-top-color: var(--primary);
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: translateY(-50%) rotate(360deg); }
-        }
-
-        /* Tags */
-        .tags-container {
-            margin: 2rem 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        .tag {
-            padding: 0.5rem 1.25rem;
-            background: var(--background-alt);
-            border-radius: 100px;
-            font-size: 0.875rem;
-            color: var(--text);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-        }
-
-        .tag:hover, .tag.active {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        /* Featured Articles */
-        .featured-articles {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .featured-article {
-            position: relative;
-            height: 400px;
-            border-radius: 12px;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
-
-        .featured-article:hover {
-            transform: translateY(-5px);
-        }
-
-        .featured-article img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .featured-article:hover img {
-            transform: scale(1.05);
-        }
-
-        .featured-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 2rem;
-            background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.3), transparent);
-            color: white;
-        }
-
-        .featured-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            line-height: 1.4;
-        }
-
-        .meta {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-size: 0.875rem;
-        }
-
-        .author {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .author-image {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        /* Latest Articles */
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .section-title::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background: var(--border);
-        }
-
-        .articles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .article-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .article-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-        }
-
-        .article-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .article-card:hover .article-image {
-            transform: scale(1.05);
-        }
-
-        .article-content {
-            padding: 1.5rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .article-category {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            background: var(--primary);
-            color: white;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            margin-bottom: 1rem;
-            align-self: flex-start;
-        }
-
-        .article-title {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            line-height: 1.4;
-            flex: 1;
-        }
-
-        .article-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: var(--text-light);
-            font-size: 0.875rem;
-            margin-top: auto;
-        }
-
-        /* Pagination */
-        .pagination {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin: 4rem 0;
-        }
-
-        .pagination-button {
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            background: white;
-            color: var(--text);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .pagination-button:hover,
-        .pagination-button.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        .pagination-button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #1a1a1a;
-            color: white;
-            padding: 4rem 0 2rem;
-            margin-top: 4rem;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
-            color: white;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links a {
-            color: #999;
-            text-decoration: none;
-            transition: color 0.3s;
-            display: block;
-            margin-bottom: 0.75rem;
-            font-size: 0.9rem;
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            margin-top: 2rem;
-            border-top: 1px solid #333;
-            color: #999;
-            font-size: 0.9rem;
-        }
-
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-
-            .header-buttons .btn-outline {
-                display: none;
-            }
-
-            .featured-articles {
-                grid-template-columns: 1fr;
-            }
-
-            .featured-article {
-                height: 300px;
-            }
-
-            .section-title {
-                font-size: 1.75rem;
-            }
-
-            .articles-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-        }
-
-        /* Accessibility improvements */
-        .visually-hidden {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-
-        /* Focus styles */
-        a:focus,
-        button:focus,
-        input:focus {
-            outline: 3px solid var(--primary);
-            outline-offset: 2px;
-        }
-
-        /* Skip to main content link */
-        .skip-to-main {
-            position: absolute;
-            top: -100px;
-            left: 0;
-            padding: 1rem;
-            background: var(--primary);
-            color: white;
-            z-index: 1001;
-            transition: top 0.3s;
-        }
-
-        .skip-to-main:focus {
-            top: 0;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages/media.css">
 </head>
 <body>
     <a href="#main" class="skip-to-main">メインコンテンツへスキップ</a>
@@ -517,110 +48,148 @@
         </div>
 
         <div class="tags-container" role="navigation" aria-label="記事のカテゴリー">
-            <a href="#" class="tag active">Most Popular</a>
-            <a href="#" class="tag">AI開発</a>
+            <a href="#" class="tag active">全て</a>
             <a href="#" class="tag">業界別活用事例</a>
-            <a href="#" class="tag">業務別活用事例</a>
-            <a href="#" class="tag">システム開発</a>
+            <a href="#" class="tag">業務別活用方法</a>
+            <a href="#" class="tag">最新技術</a>
+            <a href="#" class="tag">事例紹介</a>
+            <a href="#" class="tag">導入ガイド</a>
         </div>
 
         <section class="featured-articles" aria-label="注目の記事">
             <article class="featured-article">
-                <img src="https://sjc.microlink.io/6oD_2Rmgq__PkgtSkvgUz5BJd5XVM97oh9p3Mw2WtUzH8PpQ5UKdQA1zr9LC2nl-Gvz1-vyfEaAOL_WaXCDSRw.jpeg" alt="生成AIを活用したビジネス改革" loading="lazy">
-                <div class="featured-content">
-                    <h2 class="featured-title">生成AIを活用したビジネス改革の最前線</h2>
-                    <div class="meta">
-                        <div class="author">
-                            <img src="/placeholder.svg?height=24&width=24" alt="" class="author-image">
-                            <span>山田太郎</span>
-                        </div>
-                        <time datetime="2025-01-24">2025.01.24</time>
-                    </div>
+                <img src="healthcare-ai.jpg" alt="Healthcare AI" class="featured-article-image">
+                <div class="featured-article-content">
+                    <span class="featured-article-tag">業界別活用事例</span>
+                    <h2 class="featured-article-title">医療現場での生成AI活用事例：診断支援から管理業務の効率化まで</h2>
+                    <div class="featured-article-date">2024年12月15日</div>
                 </div>
             </article>
             <article class="featured-article">
-                <img src="/placeholder.svg?height=400&width=600" alt="ChatGPTを活用した業務効率化" loading="lazy">
-                <div class="featured-content">
-                    <h2 class="featured-title">ChatGPTを活用した業務効率化のベストプラクティス</h2>
-                    <div class="meta">
-                        <div class="author">
-                            <img src="/placeholder.svg?height=24&width=24" alt="" class="author-image">
-                            <span>佐藤花子</span>
-                        </div>
-                        <time datetime="2025-01-22">2025.01.22</time>
-                    </div>
+                <img src="generative-ai-business.jpg" alt="Generative AI in Business" class="featured-article-image">
+                <div class="featured-article-content">
+                    <span class="featured-article-tag">導入ガイド</span>
+                    <h2 class="featured-article-title">中小企業のための生成AI導入ロードマップ：コスト削減と業務効率化の実現</h2>
+                    <div class="featured-article-date">2024年12月10日</div>
                 </div>
             </article>
         </section>
 
-        <section aria-labelledby="latest-articles">
-            <h2 id="latest-articles" class="section-title">Latest</h2>
-            <div class="articles-grid">
-                <article class="article-card">
-                    <img src="/placeholder.svg?height=200&width=300" alt="対話型AIエージェントの開発" class="article-image" loading="lazy">
-                    <div class="article-content">
-                        <span class="article-category">AI開発</span>
-                        <h3 class="article-title">対話型AIエージェントの構築方法について</h3>
-                        <div class="article-meta">
-                            <time datetime="2025-01-20">2025.01.20</time>
-                            <span>読了時間 5分</span>
-                        </div>
-                    </div>
-                </article>
-                <article class="article-card">
-                    <img src="/placeholder.svg?height=200&width=300" alt="Article 2" class="article-image" loading="lazy">
-                    <div class="article-content">
-                        <span class="article-category">業界別活用事例</span>
-                        <h3 class="article-title">建設業界でのAI導入事例6選 | DX推進で人手不足に対応&コスト削減</h3>
-                        <div class="article-meta">
-                            <time datetime="2025-01-18">2025.01.18</time>
-                            <span>読了時間 8分</span>
-                        </div>
-                    </div>
-                </article>
-                <article class="article-card">
-                    <img src="/placeholder.svg?height=200&width=300" alt="Article 3" class="article-image" loading="lazy">
-                    <div class="article-content">
-                        <span class="article-category">AI開発</span>
-                        <h3 class="article-title">RAGチャットボットの開発手法と実装のポイント</h3>
-                        <div class="article-meta">
-                            <time datetime="2025-01-15">2025.01.15</time>
-                            <span>読了時間 10分</span>
-                        </div>
-                    </div>
-                </article>
-                <article class="article-card">
-                    <img src="/placeholder.svg?height=200&width=300" alt="Article 1" class="article-image" loading="lazy">
-                    <div class="article-content">
-                        <span class="article-category">AI開発</span>
-                        <h3 class="article-title">対話型AIエージェントの構築方法について</h3>
-                        <div class="article-meta">
-                            <time datetime="2025-01-20">2025.01.20</time>
-                            <span>読了時間 5分</span>
-                        </div>
-                    </div>
-                </article>
-                <article class="article-card">
-                    <img src="/placeholder.svg?height=200&width=300" alt="Article 1" class="article-image" loading="lazy">
-                    <div class="article-content">
-                        <span class="article-category">AI開発</span>
-                        <h3 class="article-title">対話型AIエージェントの構築方法について</h3>
-                        <div class="article-meta">
-                            <time datetime="2025-01-20">2025.01.20</time>
-                            <span>読了時間 5分</span>
-                        </div>
-                    </div>
-                </article>
+        <div class="articles-header">
+            <h2 class="articles-title">最新記事</h2>
+            <div class="articles-view-toggle">
+                <button class="view-button grid-view-btn active" aria-label="Grid View">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                </button>
+                <button class="view-button list-view-btn" aria-label="List View">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="8" y1="6" x2="21" y2="6"></line>
+                        <line x1="8" y1="12" x2="21" y2="12"></line>
+                        <line x1="8" y1="18" x2="21" y2="18"></line>
+                        <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                        <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                        <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                    </svg>
+                </button>
             </div>
-        </section>
-
-        <nav class="pagination" aria-label="ページナビゲーション">
-            <button class="pagination-button" disabled aria-label="前のページ">前へ</button>
-            <button class="pagination-button active" aria-current="page">1</button>
-            <button class="pagination-button">2</button>
-            <button class="pagination-button">3</button>
-            <button class="pagination-button" aria-label="次のページ">次へ</button>
-        </nav>
+        </div>
+        
+        <div class="articles-grid">
+            <article class="article-card">
+                <img src="construction.jpg" alt="Construction AI" class="article-image">
+                <div class="article-content">
+                    <span class="article-tag">業界別活用事例</span>
+                    <div class="article-date">2025/1/6</div>
+                    <h3 class="article-title">建設業界でのAI導入事例6選 | DX推進で人手不足に対応&コスト削減</h3>
+                    <a href="/articles/construction-ai" class="article-link">Read</a>
+                </div>
+            </article>
+            
+            <article class="article-card">
+                <img src="response.jpg" alt="Customer Support AI" class="article-image">
+                <div class="article-content">
+                    <span class="article-tag">業務別活用方法</span>
+                    <div class="article-date">2024/12/9</div>
+                    <h3 class="article-title">【生成AIで問い合わせ対応を自動化】メリットや事例を徹底解説！</h3>
+                    <a href="/articles/customer-support-ai" class="article-link">Read</a>
+                </div>
+            </article>
+            
+            <article class="article-card">
+                <img src="hospital.jpg" alt="Healthcare AI" class="article-image">
+                <div class="article-content">
+                    <span class="article-tag">業界別活用事例</span>
+                    <div class="article-date">2024/12/8</div>
+                    <h3 class="article-title">AIが医療を変える！医療現場でのChatGPTの活用方法</h3>
+                    <a href="/articles/healthcare-ai" class="article-link">Read</a>
+                </div>
+            </article>
+            
+            <article class="article-card">
+                <img src="manufacturing.jpg" alt="Manufacturing AI" class="article-image">
+                <div class="article-content">
+                    <span class="article-tag">業界別活用事例</span>
+                    <div class="article-date">2024/12/5</div>
+                    <h3 class="article-title">製造業における生成AI活用の最前線：品質管理から設計支援まで</h3>
+                    <a href="/articles/manufacturing-ai" class="article-link">Read</a>
+                </div>
+            </article>
+            
+            <article class="article-card">
+                <img src="legal-ai.jpg" alt="Legal AI" class="article-image">
+                <div class="article-content">
+                    <span class="article-tag">業界別活用事例</span>
+                    <div class="article-date">2024/12/1</div>
+                    <h3 class="article-title">法務部門の業務効率化：契約書レビューから法律相談対応までAIが変えるリーガル業務</h3>
+                    <a href="/articles/legal-ai" class="article-link">Read</a>
+                </div>
+            </article>
+            
+            <article class="article-card">
+                <img src="rag.jpg" alt="RAG Architecture" class="article-image">
+                <div class="article-content">
+                    <span class="article-tag">最新技術</span>
+                    <div class="article-date">2024/11/28</div>
+                    <h3 class="article-title">RAG（検索拡張生成）とは？基礎から実装まで徹底解説</h3>
+                    <a href="/articles/rag-explained" class="article-link">Read</a>
+                </div>
+            </article>
+        </div>
+        
+        <div class="articles-list">
+            <!-- リスト表示用の記事 -->
+            <article class="list-article">
+                <img src="construction.jpg" alt="Construction AI" class="list-article-image">
+                <div class="list-article-content">
+                    <div class="list-article-meta">
+                        <span class="list-article-tag">業界別活用事例</span>
+                        <span class="list-article-date">2025/1/6</span>
+                    </div>
+                    <h3 class="list-article-title">建設業界でのAI導入事例6選 | DX推進で人手不足に対応&コスト削減</h3>
+                    <p class="list-article-excerpt">建設業界におけるAI活用事例を6つ紹介。人手不足対策やコスト削減に貢献する最新技術の導入方法と効果について解説します。</p>
+                </div>
+            </article>
+            
+            <!-- 他の記事もここに同様に追加 -->
+        </div>
+        
+        <div class="pagination">
+            <a href="#" class="page-link active">1</a>
+            <a href="#" class="page-link">2</a>
+            <a href="#" class="page-link">3</a>
+            <a href="#" class="page-link">4</a>
+            <a href="#" class="page-link">5</a>
+            <a href="#" class="page-link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </a>
+        </div>
     </main>
 
     <footer>
@@ -654,69 +223,51 @@
         </div>
     </footer>
 
+    <script src="js/common.js"></script>
     <script>
-        // Search functionality with debounce
-        function debounce(func, wait) {
-            let timeout;
-            return function executedFunction(...args) {
-                const later = () => {
-                    clearTimeout(timeout);
-                    func(...args);
-                };
-                clearTimeout(timeout);
-                timeout = setTimeout(later, wait);
-            };
-        }
-
-        const searchInput = document.querySelector('.search-input');
-        const searchContainer = document.querySelector('.search-container');
-
-        const handleSearch = debounce((searchTerm) => {
-            if (searchTerm.length > 0) {
+        // 表示切り替え機能
+        document.addEventListener('DOMContentLoaded', function() {
+            const gridViewBtn = document.querySelector('.grid-view-btn');
+            const listViewBtn = document.querySelector('.list-view-btn');
+            const articlesGrid = document.querySelector('.articles-grid');
+            const articlesList = document.querySelector('.articles-list');
+            
+            gridViewBtn.addEventListener('click', function() {
+                gridViewBtn.classList.add('active');
+                listViewBtn.classList.remove('active');
+                articlesGrid.classList.remove('list-view');
+                articlesList.classList.remove('list-view');
+            });
+            
+            listViewBtn.addEventListener('click', function() {
+                listViewBtn.classList.add('active');
+                gridViewBtn.classList.remove('active');
+                articlesGrid.classList.add('list-view');
+                articlesList.classList.add('list-view');
+            });
+            
+            // タグ選択機能
+            const tags = document.querySelectorAll('.tag');
+            tags.forEach(tag => {
+                tag.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    tags.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // 検索機能のローディング表示サンプル
+            const searchInput = document.querySelector('.search-input');
+            searchInput.addEventListener('input', function() {
+                const searchContainer = document.querySelector('.search-container');
                 searchContainer.classList.add('loading');
-                // Simulate API call
+                
+                // 実際には非同期でAPIを呼び出し、結果を表示する処理を実装
                 setTimeout(() => {
-                    console.log('Searching for:', searchTerm);
                     searchContainer.classList.remove('loading');
                 }, 1000);
-            }
-        }, 500);
-
-        searchInput.addEventListener('input', (e) => {
-            handleSearch(e.target.value);
-        });
-
-        // Tag filtering
-        const tags = document.querySelectorAll('.tag');
-        tags.forEach(tag => {
-            tag.addEventListener('click', (e) => {
-                e.preventDefault();
-                // Remove active class from all tags
-                tags.forEach(t => t.classList.remove('active'));
-                // Add active class to clicked tag
-                tag.classList.add('active');
-                console.log('Filtering by:', tag.textContent);
             });
         });
-
-        // Lazy loading images
-        document.addEventListener('DOMContentLoaded', function() {
-            const images = document.querySelectorAll('img[loading="lazy"]');
-            if ('loading' in HTMLImageElement.prototype) {
-                images.forEach(img => {
-                    img.src = img.src;
-                });
-            } else {
-                // Fallback for browsers that don't support lazy loading
-                const script = document.createElement('script');
-                script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
-                document.body.appendChild(script);
-                images.forEach(img => {
-                    img.classList.add('lazyload');
-                });
-            }
-        });
     </script>
-
 </body>
 </html>

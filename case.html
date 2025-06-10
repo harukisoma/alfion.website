@@ -3,489 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>導入事例 - アルフィオン</title>
-    <style>
-        /* Reset and base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: white;
-        }
-
-        /* Header styles */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: white;
-            padding: 1rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            z-index: 1000;
-        }
-
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            height: 32px;
-            width: auto;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: #333;
-            transition: color 0.3s;
-        }
-
-        .nav-menu a:hover {
-            color: #7D17BE;
-        }
-
-        .header-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .btn-outline {
-            border: 1px solid #7D17BE;
-            color: #7D17BE;
-        }
-
-        .btn-outline:hover {
-            background-color: #7D17BE;
-            color: white;
-        }
-
-        .btn-primary {
-            background-color: #7D17BE;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: #6a14a3;
-        }
-
-        /* Page title section */
-        .page-title {
-            padding: 120px 5% 60px;
-            background: white;
-        }
-
-        .title-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .title-main {
-            font-size: 4rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .title-main span {
-            font-size: 1.5rem;
-            font-weight: normal;
-        }
-
-        .title-description {
-            font-size: 1.1rem;
-            color: #666;
-            text-align: right;
-        }
-
-        /* Case studies grid */
-        .case-studies {
-            padding: 2rem 5%;
-            background: #f5f5f5;
-        }
-
-        .case-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .case-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .case-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        .case-logos {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            min-height: 60px;
-        }
-
-        .case-logos img {
-            height: 40px;
-            width: auto;
-        }
-
-        .case-type {
-            color: #7D17BE;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .case-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            line-height: 1.3;
-        }
-
-        .case-description {
-            color: #666;
-            margin-bottom: 2rem;
-        }
-
-        .case-link {
-            display: inline-flex;
-            align-items: center;
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-
-        .case-link:hover {
-            color: #7D17BE;
-        }
-
-        .case-link::after {
-            content: '+';
-            margin-left: 0.5rem;
-            font-size: 1.2rem;
-            transition: transform 0.3s;
-        }
-
-        .case-link:hover::after {
-            transform: rotate(45deg);
-        }
-
-        /* Filter section */
-        .filter-section {
-            max-width: 1200px;
-            margin: 0 auto 2rem;
-            padding: 0 1rem;
-        }
-
-        .filter-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-button {
-            padding: 0.5rem 1.5rem;
-            border: 1px solid #ddd;
-            border-radius: 100px;
-            background: white;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .filter-button:hover,
-        .filter-button.active {
-            background: #7D17BE;
-            color: white;
-            border-color: #7D17BE;
-        }
-
-                        /* Footer */
-                        footer {
-            background-color: #1a1a1a;
-            color: white;
-            padding: 4rem 0 2rem;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-        }
-
-        .footer-logo {
-            filter: brightness(0) invert(1);
-            height: 32px;
-            width: auto;
-            margin-bottom: 1rem;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links a {
-            color: #999;
-            text-decoration: none;
-            transition: color 0.3s;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            margin-top: 2rem;
-            border-top: 1px solid #333;
-            color: #999;
-        }
-
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-
-            .header-buttons .btn-outline {
-                display: none;
-            }
-
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-buttons {
-                flex-direction: column;
-                padding: 0 2rem;
-            }
-        }
-        @media (max-width: 768px) {
-            .title-main {
-                font-size: 3rem;
-            }
-
-            .title-description {
-                text-align: left;
-            }
-
-            .case-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .filter-buttons {
-                justify-content: center;
-            }
-        }
-    </style>
+    <title>導入事例 - ALFION</title>
+    <meta name="description" content="ALFIONの導入事例をご紹介します。様々な業界における人工知能技術と自動化ソリューションの活用例とその成果をご覧いただけます。">
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages/case.css">
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <a href="/">
-                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202024-12-12%2017.29.24-dNXjP888HhN7IqHcdyB7m1hOWk5pzX.png" alt="Alfion" class="logo">
-            </a>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="https://alfion.jp/#services">事業紹介</a></li>
-                    <li><a href="https://alfion.jp/#cases">サービス事例</a></li>
-                    <li><a href="https://alfion.jp/#media">AI関連記事</a></li>
-                    <li><a href="https://alfion.jp/#recruit">採用情報</a></li>
-                </ul>
-            </nav>
-            <div class="header-buttons">
-                <a href="https://alfion.jp/download" class="btn btn-outline">お役立ち資料</a>
-                <a href="https://alfion.jp/contact" class="btn btn-primary">お問い合わせ</a>
+    <div id="header-container"></div>
+
+    <main class="main">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">導入事例</h1>
+                <p class="page-subtitle">様々な業界におけるALFIONソリューションの活用事例と成果をご紹介します</p>
+            </div>
+
+            <div class="cases-grid">
+                <article class="featured-case">
+                    <img src="images/case-featured.jpg" alt="株式会社メディア・パブリッシング社の導入事例" class="featured-case-image">
+                    <div class="featured-case-content">
+                        <span class="featured-label">注目事例</span>
+                        <h2 class="featured-case-title">AI予測分析による販売戦略最適化で年間売上20%増加を実現</h2>
+                        <p class="featured-case-summary">
+                            大手出版社の株式会社メディア・パブリッシング社では、ALFIONの予測分析AIを導入し、読者の購買行動を分析。効果的なマーケティング戦略の立案と実行により、年間売上の大幅な向上を達成しました。
+                        </p>
+                        <div class="featured-case-data">
+                            <div class="data-item">
+                                <span class="data-value">20%</span>
+                                <span class="data-label">売上向上</span>
+                            </div>
+                            <div class="data-item">
+                                <span class="data-value">35%</span>
+                                <span class="data-label">業務効率化</span>
+                            </div>
+                            <div class="data-item">
+                                <span class="data-value">6ヶ月</span>
+                                <span class="data-label">ROI達成期間</span>
+                            </div>
+                            <div class="data-item">
+                                <span class="data-value">3倍</span>
+                                <span class="data-label">顧客維持率向上</span>
+                            </div>
+                        </div>
+                        <a href="#" class="featured-case-cta">詳細を見る</a>
+                    </div>
+                </article>
+
+                <article class="case-card">
+                    <img src="images/case-manufacturing.jpg" alt="製造業の導入事例" class="case-image">
+                    <div class="case-content">
+                        <span class="case-tag">製造業</span>
+                        <h3 class="case-title">予知保全AIによる工場稼働率の向上</h3>
+                        <p class="case-summary">
+                            大手電機メーカーでは、ALFIONの予知保全AIを活用し、生産ラインの故障を事前に予測。計画的なメンテナンスにより、ダウンタイムを80%削減しました。
+                        </p>
+                        <a href="#" class="case-read-more">
+                            詳細を見る
+                            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="case-card">
+                    <img src="images/case-retail.jpg" alt="小売業の導入事例" class="case-image">
+                    <div class="case-content">
+                        <span class="case-tag">小売業</span>
+                        <h3 class="case-title">需要予測による在庫最適化システム構築</h3>
+                        <p class="case-summary">
+                            全国展開する小売チェーンでは、ALFIONの需要予測AIを導入し、店舗ごとの最適在庫を自動算出。在庫コスト25%削減、欠品率65%改善を実現しました。
+                        </p>
+                        <a href="#" class="case-read-more">
+                            詳細を見る
+                            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="case-card">
+                    <img src="images/case-finance.jpg" alt="金融業の導入事例" class="case-image">
+                    <div class="case-content">
+                        <span class="case-tag">金融</span>
+                        <h3 class="case-title">AI審査システムによる融資判断の迅速化</h3>
+                        <p class="case-summary">
+                            地方銀行では、ALFIONのAI与信審査システムを導入。審査時間を90%短縮し、審査精度を15%向上させ、顧客満足度の大幅改善に成功しました。
+                        </p>
+                        <a href="#" class="case-read-more">
+                            詳細を見る
+                            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="case-card">
+                    <img src="images/case-healthcare.jpg" alt="医療業界の導入事例" class="case-image">
+                    <div class="case-content">
+                        <span class="case-tag">医療</span>
+                        <h3 class="case-title">診断支援AIによる早期発見率向上</h3>
+                        <p class="case-summary">
+                            大学病院では、ALFIONの画像診断支援AIを導入。早期診断率が40%向上し、医師の診断負担を軽減しながら患者の治療成績を改善しました。
+                        </p>
+                        <a href="#" class="case-read-more">
+                            詳細を見る
+                            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="case-card">
+                    <img src="images/case-logistics.jpg" alt="物流業界の導入事例" class="case-image">
+                    <div class="case-content">
+                        <span class="case-tag">物流</span>
+                        <h3 class="case-title">配送ルート最適化による効率改善</h3>
+                        <p class="case-summary">
+                            宅配大手企業では、ALFIONの配送ルート最適化AIを導入。燃料コスト15%削減、配送時間30%短縮を実現し、環境負荷も大幅に軽減しました。
+                        </p>
+                        <a href="#" class="case-read-more">
+                            詳細を見る
+                            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="pagination">
+                <a href="#" class="page-link active">1</a>
+                <a href="#" class="page-link">2</a>
+                <a href="#" class="page-link">3</a>
+                <a href="#" class="page-link">4</a>
+                <a href="#" class="page-link">5</a>
             </div>
         </div>
-    </header>
+    </main>
 
-    <section class="page-title">
-        <div class="title-container">
-            <h1 class="title-main">
-                CASE <span>導入事例</span>
-            </h1>
-            <p class="title-description">
-                これまでにアルフィオンが支援したお客様の事例の一部をご紹介します。
-            </p>
-        </div>
-    </section>
-
-    <section class="case-studies">
-        <div class="filter-section">
-            <div class="filter-buttons">
-                <button class="filter-button active" data-filter="all">すべて</button>
-                <button class="filter-button" data-filter="consulting">コンサルティング</button>
-                <button class="filter-button" data-filter="development">システム開発</button>
-                <button class="filter-button" data-filter="training">研修・導入支援</button>
-            </div>
-        </div>
-
-        <div class="case-grid">
-            <article class="case-card" data-category="development">
-                <div class="case-logos">
-                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-01-21%2017.16.22-lNdKsriXAEoLk9pUnEJxz76G3c0bqr.png" alt="Blue Lab">
-                    <span>×</span>
-                    <img src="/placeholder.svg?height=40&width=120" alt="Alfion">
-                </div>
-                <p class="case-type">システム開発</p>
-                <h2 class="case-title">新規事業のプロダクト開発支援</h2>
-                <p class="case-description">
-                    Blue Lab様の新規事業におけるプロダクト開発を支援しました。
-                </p>
-                <a href="/cases/bluelab" class="case-link">VIEW DETAILS</a>
-            </article>
-
-            <article class="case-card" data-category="consulting">
-                <div class="case-logos">
-                    <img src="/placeholder.svg?height=40&width=120" alt="RAG Chatbot">
-                </div>
-                <p class="case-type">コンサルティング</p>
-                <h2 class="case-title">RAGチャットボット導入事例集</h2>
-                <p class="case-description">
-                    対話型AIをシームレスに問い合わせ対応業務に組み込むことができます。
-                </p>
-                <a href="/cases/rag-chatbot" class="case-link">VIEW DETAILS</a>
-            </article>
-
-            <article class="case-card" data-category="development">
-                <div class="case-logos">
-                    <img src="/placeholder.svg?height=40&width=40" alt="Restaurant">
-                    <span>×</span>
-                    <img src="/placeholder.svg?height=40&width=120" alt="Alfion">
-                </div>
-                <p class="case-type">システム開発</p>
-                <h2 class="case-title">飲食店コンシェルジュサービスの開発支援</h2>
-                <p class="case-description">
-                    飲食店向けAIコンシェルジュサービスの開発支援を行いました。
-                </p>
-                <a href="/cases/restaurant-concierge" class="case-link">VIEW DETAILS</a>
-            </article>
-
-            <article class="case-card" data-category="development">
-                <div class="case-logos">
-                    <img src="/placeholder.svg?height=40&width=40" alt="Restaurant">
-                    <span>×</span>
-                    <img src="/placeholder.svg?height=40&width=120" alt="Alfion">
-                </div>
-                <p class="case-type">システム開発</p>
-                <h2 class="case-title">飲食店コンシェルジュサービスの開発支援</h2>
-                <p class="case-description">
-                    飲食店向けAIコンシェルジュサービスの開発支援を行いました。
-                </p>
-                <a href="/cases/restaurant-concierge" class="case-link">VIEW DETAILS</a>
-            </article>
-        </div>
-    </section>
+    <div id="footer-container"></div>
     
-    <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <p>
-                    株式会社アルフィオン<br>
-                </p>
-            </div>
-            <div class="footer-section">
-                <h3>サービス</h3>
-                <ul class="footer-links">
-                    <li><a href="https://alfion.jp/#services">事業紹介</a></li>
-                    <li><a href="https://alfion.jp/#cases">サービス事例</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>会社情報</h3>
-                <ul class="footer-links">
-                    <li><a href="#about">会社概要</a></li>
-                    <li><a href="https://alfion.jp/#recruit">採用情報</a></li>
-                    <li><a href="https://alfion.jp/#contact">お問い合わせ</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Alfion Inc. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterButtons = document.querySelectorAll('.filter-button');
-            const caseCards = document.querySelectorAll('.case-card');
-
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Remove active class from all buttons
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    // Add active class to clicked button
-                    button.classList.add('active');
-
-                    const filterValue = button.getAttribute('data-filter');
-
-                    caseCards.forEach(card => {
-                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                            card.style.display = 'block';
-                            setTimeout(() => {
-                                card.style.opacity = '1';
-                                card.style.transform = 'translateY(0)';
-                            }, 10);
-                        } else {
-                            card.style.opacity = '0';
-                            card.style.transform = 'translateY(20px)';
-                            setTimeout(() => {
-                                card.style.display = 'none';
-                            }, 300);
-                        }
-                    });
-                });
-            });
-        });
-    </script>
+    <script src="js/common.js"></script>
 </body>
 </html>

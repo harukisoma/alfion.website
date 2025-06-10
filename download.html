@@ -3,318 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ホワイトペーパーダウンロード｜株式会社アルフィオン (Alfion)</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #7D17BE;
-            --primary-light: #9B4FD3;
-            --text: #333333;
-            --text-light: #666666;
-            --background: #FFFFFF;
-            --background-alt: #F8F8F8;
-            --border: #EEEEEE;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Noto Sans JP', sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background: var(--background);
-        }
-
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .header-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            height: 32px;
-            width: auto;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-link {
-            text-decoration: none;
-            color: var(--text);
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-
-        .nav-link:hover {
-            color: var(--primary);
-        }
-
-        .main {
-            padding-top: 120px;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .page-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .page-title {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .page-subtitle {
-            font-size: 1.5rem;
-            color: var(--text-light);
-        }
-
-        .whitepaper-content {
-            background: white;
-            padding: 3rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            margin-bottom: 4rem;
-        }
-
-        .whitepaper-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .whitepaper-description {
-            color: var(--text-light);
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
-
-        .whitepaper-points {
-            list-style: none;
-            margin: 2rem 0;
-        }
-
-        .whitepaper-points li {
-            padding-left: 1.5rem;
-            position: relative;
-            margin-bottom: 1rem;
-            color: var(--text-light);
-        }
-
-        .whitepaper-points li::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0.7rem;
-            width: 6px;
-            height: 6px;
-            background: var(--primary);
-            border-radius: 50%;
-        }
-
-        .download-form {
-            background: var(--background-alt);
-            padding: 2rem;
-            border-radius: 8px;
-            margin-top: 3rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .required {
-            color: #e53e3e;
-            margin-left: 0.25rem;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-
-        .submit-button {
-            display: block;
-            width: 100%;
-            padding: 1rem;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .submit-button:hover {
-            background: var(--primary-light);
-            transform: translateY(-2px);
-        }
-
-        .privacy-note {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            text-align: center;
-            margin-top: 1rem;
-        }
-
-        .privacy-note a {
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        .privacy-note a:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-
-            .page-title {
-                font-size: 2.5rem;
-            }
-
-            .whitepaper-content {
-                padding: 2rem;
-            }
-        }
-    </style>
+    <title>ダウンロード - ALFION</title>
+    <meta name="description" content="ALFIONのホワイトペーパーやリソースのダウンロードページです。最新の人工知能技術と自動化ソリューションに関する情報をご提供しています。">
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages/download.css">
 </head>
 <body>
-    <header class="header">
-        <div class="header-container">
-            <a href="/">
-                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202024-12-12%2017.29.24-dNXjP888HhN7IqHcdyB7m1hOWk5pzX.png" alt="Alfion" class="logo">
-            </a>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="/" class="nav-link">ホーム</a></li>
-                    <li><a href="/services" class="nav-link">サービス</a></li>
-                    <li><a href="/cases" class="nav-link">導入事例</a></li>
-                    <li><a href="/company" class="nav-link">会社情報</a></li>
-                    <li><a href="/recruit" class="nav-link">採用情報</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <div id="header-container"></div>
 
     <main class="main">
         <div class="container">
-            <header class="page-header">
-                <h1 class="page-title">WHITEPAPER</h1>
-                <p class="page-subtitle">ホワイトペーパー</p>
-            </header>
+            <div class="page-header">
+                <h1 class="page-title">リソースダウンロード</h1>
+                <p class="page-subtitle">最新の人工知能技術と自動化ソリューションに関する情報</p>
+            </div>
 
             <div class="whitepaper-content">
-                <h2 class="whitepaper-title">
-                    生成AIを活用した業務効率化ガイド<br>
-                    ～導入から運用まで～
-                </h2>
-
+                <img src="images/whitepaper-cover.jpg" alt="AIソリューション導入ガイド" class="whitepaper-image">
+                <div class="whitepaper-metadata">
+                    <span>公開日: 2023年6月15日</span>
+                    <span>28ページ PDF (4.2MB)</span>
+                </div>
+                <h2 class="whitepaper-title">AIソリューション導入ガイド: 成功事例と実践ステップ</h2>
                 <p class="whitepaper-description">
-                    本ホワイトペーパーでは、企業における生成AI活用の具体的な方法と、
-                    実際の導入事例を交えながら、効果的な活用方法をご紹介します。
+                    本ホワイトペーパーでは、企業がAIソリューションを効果的に導入するための包括的なガイドラインを提供しています。
+                    業界別の成功事例や具体的な導入ステップを通じて、御社のビジネスにAIをどのように活用できるかを解説します。
                 </p>
-
                 <ul class="whitepaper-points">
-                    <li>生成AIの基礎知識と最新動向</li>
-                    <li>企業における活用シーンと期待される効果</li>
-                    <li>導入から運用までのステップ解説</li>
-                    <li>セキュリティ対策と注意点</li>
-                    <li>具体的な導入事例と成果</li>
+                    <li>AI導入による業務効率化の具体的な数値と事例</li>
+                    <li>導入前に考慮すべき技術的・組織的要件</li>
+                    <li>コスト削減と投資対効果を最大化するための戦略</li>
+                    <li>AI倫理とコンプライアンスへの対応</li>
                 </ul>
+                <div class="whitepaper-actions">
+                    <button class="action-button">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        PDFを表示
+                    </button>
+                    <button class="action-button">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                        </svg>
+                        共有する
+                    </button>
+                </div>
 
                 <div class="download-form">
-                    <form action="#" method="POST">
+                    <h3 class="whitepaper-title">資料をダウンロード</h3>
+                    <form id="download-form">
                         <div class="form-group">
-                            <label class="form-label">
-                                会社名<span class="required">*</span>
-                            </label>
+                            <label class="form-label">お名前<span class="required">*</span></label>
                             <input type="text" class="form-input" required>
                         </div>
-
                         <div class="form-group">
-                            <label class="form-label">
-                                お名前<span class="required">*</span>
-                            </label>
+                            <label class="form-label">会社名<span class="required">*</span></label>
                             <input type="text" class="form-input" required>
                         </div>
-
                         <div class="form-group">
-                            <label class="form-label">
-                                メールアドレス<span class="required">*</span>
-                            </label>
+                            <label class="form-label">メールアドレス<span class="required">*</span></label>
                             <input type="email" class="form-input" required>
                         </div>
-
                         <div class="form-group">
-                            <label class="form-label">
-                                部署名
-                            </label>
-                            <input type="text" class="form-input">
+                            <label class="form-label">電話番号</label>
+                            <input type="tel" class="form-input">
                         </div>
-
                         <button type="submit" class="submit-button">ダウンロード</button>
+                        <p class="privacy-agreement">
+                            送信することにより、当社の<a href="#">プライバシーポリシー</a>に同意したことになります。
+                        </p>
                     </form>
-
-                    <p class="privacy-note">
-                        ご登録いただいた情報は、<a href="/privacy">プライバシーポリシー</a>に基づき管理いたします。
-                    </p>
                 </div>
             </div>
         </div>
     </main>
+
+    <div id="footer-container"></div>
+    
+    <script src="js/common.js"></script>
 </body>
 </html>

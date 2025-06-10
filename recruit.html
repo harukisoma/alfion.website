@@ -8,717 +8,238 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #7D17BE;
-            --primary-light: #9B4FD3;
-            --primary-dark: #6012A2;
-            --text: #333333;
-            --text-light: #666666;
-            --background: #FFFFFF;
-            --background-alt: #F8F8F8;
-            --border: #EEEEEE;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Noto Sans JP', sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background: var(--background);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Header styles */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 1rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            z-index: 1000;
-        }
-
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            height: 32px;
-            width: auto;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: #333;
-            transition: color 0.3s;
-        }
-
-        .nav-menu a:hover {
-            color: #7D17BE;
-        }
-
-        .header-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .btn-outline {
-            border: 1px solid #7D17BE;
-            color: #7D17BE;
-        }
-
-        .btn-outline:hover {
-            background-color: #7D17BE;
-            color: white;
-        }
-
-        .btn-primary {
-            background-color: #7D17BE;
-            color: white;
-        }
-
-        .btn-primary:hover {
-    background-color: #6a14a3; 
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 180px 0 100px;
-            background-image: url(herobackground.jpg);
-            background-size: cover;
-            color: white;
-            text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 1s ease forwards;
-        }
-
-        .hero-title {
-            font-size: 4rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 2rem;
-            letter-spacing: -0.02em;
-        }
-
-        .hero-subtitle {
-            font-size: 1.25rem;
-            line-height: 1.8;
-            opacity: 0.9;
-        }
-        /* Message Section */
-        .message {
-            padding: 8rem 0;
-            background: white;
-        }
-
-        .message-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .message-content {
-            max-width: 500px;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            line-height: 1.2;
-        }
-
-        .message-text {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-        }
-
-        .message-image {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 12px;
-        }
-
-        /* Mission & Vision Sections */
-        .mission-vision {
-            padding: 100px 0;
-            background: var(--background-alt);
-        }
-
-        .mission-vision-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 4rem;
-        }
-
-        .mission-box, .vision-box {
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .mission-box:hover, .vision-box:hover {
-            transform: translateY(-5px);
-        }
-
-        .box-label {
-            color: var(--primary);
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .box-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            line-height: 1.4;
-        }
-
-        .box-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-light);
-        }
-        
-        /* Values Section */
-        .values {
-            padding: 100px 0;
-            background: white;
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .value-card {
-            background: var(--background-alt);
-            padding: 2rem;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .value-card:hover {
-            transform: translateY(-5px);
-            background: var(--primary);
-            color: white;
-        }
-
-        .value-card:hover .value-title {
-            color: white;
-        }
-
-        .value-title {
-            color: var(--primary);
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            transition: color 0.3s ease;
-        }
-
-        .value-text {
-            line-height: 1.6;
-        }
-
-        /* Positions Section */
-        .positions {
-            padding: 100px 0;
-            background: var(--background-alt);
-        }
-
-        .position-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 15px;
-            margin-bottom: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .position-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .position-title {
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-        }
-
-        .position-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-light);
-        }
-
-        .position-description {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .btn:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(125, 23, 190, 0.3);
-        }
-                /* Process Section */
-        .process {
-            padding: 6rem 0;
-            background: white;
-        }
-
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        
-        .process-step {
-            text-align: center;
-            padding: 2rem;
-            background: var(--background-alt);
-            border-radius: 8px;
-            position: relative;
-        }
-
-        .process-step:not(:last-child)::after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            right: -1rem;
-            width: 2rem;
-            height: 2px;
-            background: var(--border);
-            transform: translateY(-50%);
-        }
-
-        .step-number {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            line-height: 1;
-        }
-                /* CTA Section */
-                .cta {
-            padding: 100px 0;
-            background: linear-gradient(45deg, var(--primary), var(--primary-light));
-            color: white;
-            text-align: center;
-            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
-        }
-
-        .cta-title {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 3rem;
-        }
-
-        .btn-white {
-            background: white;
-            color: var(--primary);
-        }
-
-        .btn-white:hover {
-            background: var(--background-alt);
-            color: var(--primary-dark);
-        }
-
-                /* Footer */
-                footer {
-            background-color: #1a1a1a;
-            color: white;
-            padding: 4rem 0 2rem;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-        }
-
-        .footer-logo {
-            filter: brightness(0) invert(1);
-            height: 32px;
-            width: auto;
-            margin-bottom: 1rem;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links a {
-            color: #999;
-            text-decoration: none;
-            transition: color 0.3s;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            margin-top: 2rem;
-            border-top: 1px solid #333;
-            color: #999;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-    .header-buttons .btn-outline {
-        display: none
-    }
-}
-
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .process-steps {
-                grid-template-columns: 1fr;
-            }
-
-            .position-meta {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            .values-grid {
-                grid-template-columns: 1fr;
-            }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 1rem;
-            }
-
-            .hero-title {
-                font-size: 2rem;
-            }
-
-            .box-title {
-                font-size: 1.5rem;
-            }
-        }
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-
-            .header-buttons .btn-outline {
-                display: none;
-            }
-
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-buttons {
-                flex-direction: column;
-                padding: 0 2rem;
-            }
-        }
-
-    </style>
-    </head>
-    <body>
-        <header>
-            <div class="header-container">
-                <a href="/">
-                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202024-12-12%2017.29.24-dNXjP888HhN7IqHcdyB7m1hOWk5pzX.png" alt="Alfion" class="logo">
-                </a>
-                <nav>
-                    <ul class="nav-menu">
-                        <li><a href="https://alfion.jp/#services">事業紹介</a></li>
-                        <li><a href="https://alfion.jp/#cases">サービス事例</a></li>
-                        <li><a href="https://alfion.jp/#media">AI関連記事</a></li>
-                        <li><a href="https://alfion.jp/#recruit">採用情報</a></li>
-                    </ul>
-                </nav>
-                <div class="header-buttons">
-                    <a href="https://alfion.jp/download" class="btn btn-outline">お役立ち資料</a>
-                    <a href="https://alfion.jp/contact" class="btn btn-primary">お問い合わせ</a>
-                </div>
-            </div>
-        </header>
-    
+    <link rel="icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages/recruit.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main class="main">
         <section class="hero">
-            <div class="container hero-content">
-                <h1 class="hero-title">Redefining the Future<br>Every Day</h1>
-                <p class="hero-subtitle">アルフィオンは生成AI技術を活用して企業のDX推進を支援し、より良い未来の可能性を開くことを目指しています。</p>
+            <div class="hero-background"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">共に未来を創る仲間を募集しています</h1>
+                <p class="hero-subtitle">AIと自動化の最前線で、ビジネスと社会に革新をもたらすチャレンジに参加しませんか？</p>
+                <a href="#positions" class="cta-button">募集職種を見る</a>
             </div>
         </section>
-        <section class="message">
+
+        <section class="mission-section">
             <div class="container">
-                <div class="message-grid">
-                    <div class="message-content">
-                        <h2 class="section-title">Message</h2>
-                        <p class="message-text">
-                            アルフィオンは2025年に創業され、メンバーは20代を中心とした急成長中の東大発DXベンチャーです
+                <div class="section-header">
+                    <h2 class="section-title">私たちのミッション</h2>
+                    <p class="section-subtitle">ALFIONは、AIと自動化技術によって、ビジネスの効率化と新たな価値創造を実現し、より良い社会づくりに貢献することを目指しています。</p>
+                </div>
+
+                <div class="mission-grid">
+                    <div class="mission-card">
+                        <div class="mission-icon">💡</div>
+                        <h3 class="mission-title">イノベーション</h3>
+                        <p class="mission-description">常に最先端の技術を追求し、革新的なソリューションを生み出します。既存の枠組みにとらわれない発想で、新たな価値を創造します。</p>
+                    </div>
+
+                    <div class="mission-card">
+                        <div class="mission-icon">🤝</div>
+                        <h3 class="mission-title">パートナーシップ</h3>
+                        <p class="mission-description">お客様との深い信頼関係を構築し、真のパートナーとしてビジネスの成長と成功をサポートします。共に成長し、共に価値を生み出します。</p>
+                    </div>
+
+                    <div class="mission-card">
+                        <div class="mission-icon">🌟</div>
+                        <h3 class="mission-title">社会貢献</h3>
+                        <p class="mission-description">私たちの技術とサービスを通じて、社会課題の解決に取り組み、持続可能な未来の実現に貢献します。技術の力で世界をより良く変えていきます。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="teams-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">私たちのチーム</h2>
+                    <p class="section-subtitle">ALFIONには、様々な専門知識と経験を持つ多様なプロフェッショナルが在籍しています。各チームが連携し、最高のソリューションを提供しています。</p>
+                </div>
+
+                <div class="teams-grid">
+                    <div class="team-card">
+                        <img src="images/team-ai.jpg" alt="AIエンジニアリングチーム" class="team-image">
+                        <div class="team-content">
+                            <h3 class="team-title">AIエンジニアリング</h3>
+                            <p class="team-description">最新のAI技術を活用し、機械学習モデルの開発から実装、運用まで一貫して担当。自然言語処理や画像認識、予測分析など様々な領域でソリューションを提供します。</p>
+                            <a href="#" class="team-link">チームについて詳しく <span class="team-link-icon">→</span></a>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <img src="images/team-product.jpg" alt="プロダクトチーム" class="team-image">
+                        <div class="team-content">
+                            <h3 class="team-title">プロダクト開発</h3>
+                            <p class="team-description">ユーザー体験を中心に考えたプロダクト設計から開発、改善までを担当。使いやすさと機能性を兼ね備えた革新的なプロダクトを生み出しています。</p>
+                            <a href="#" class="team-link">チームについて詳しく <span class="team-link-icon">→</span></a>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <img src="images/team-consulting.jpg" alt="コンサルティングチーム" class="team-image">
+                        <div class="team-content">
+                            <h3 class="team-title">ビジネスコンサルティング</h3>
+                            <p class="team-description">お客様のビジネス課題を深く理解し、最適なソリューションを提案。技術と事業戦略の両面からサポートし、真の価値を提供します。</p>
+                            <a href="#" class="team-link">チームについて詳しく <span class="team-link-icon">→</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="benefits-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">働く環境と福利厚生</h2>
+                    <p class="section-subtitle">ALFIONでは、社員一人ひとりが最大限の能力を発揮できる環境づくりに力を入れています。働きやすさと成長機会の両立を目指しています。</p>
+                </div>
+
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🏢</div>
+                        <h3 class="benefit-title">リモートワーク制度</h3>
+                        <p class="benefit-description">週3日までのリモートワークが可能です。ワークライフバランスを重視し、柔軟な働き方をサポートしています。</p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">📚</div>
+                        <h3 class="benefit-title">自己研鑽支援</h3>
+                        <p class="benefit-description">書籍購入費、セミナー参加費、オンライン講座などの学習費用を会社が負担します。年間20万円まで利用可能です。</p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">💻</div>
+                        <h3 class="benefit-title">最新機器の提供</h3>
+                        <p class="benefit-description">業務に必要なPC、ディスプレイ、その他周辺機器を会社が提供。自分の理想の開発環境を整えられます。</p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🌱</div>
+                        <h3 class="benefit-title">メンター制度</h3>
+                        <p class="benefit-description">入社後は経験豊富なメンターがつき、技術面とキャリア面でのサポートを行います。安心して成長できる環境です。</p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🏆</div>
+                        <h3 class="benefit-title">インセンティブ制度</h3>
+                        <p class="benefit-description">四半期ごとの業績評価に基づくインセンティブ制度があります。成果に応じた報酬を得ることができます。</p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🍱</div>
+                        <h3 class="benefit-title">社内イベント</h3>
+                        <p class="benefit-description">定期的な社内イベントや交流会を開催。チーム間のコミュニケーションと結束力を高める機会を提供しています。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="positions-section" id="positions">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">募集職種</h2>
+                    <p class="section-subtitle">現在、以下の職種で新しい仲間を募集しています。ご興味のある方は、各職種の詳細をご確認ください。</p>
+                </div>
+
+                <div class="positions-list">
+                    <div class="position-card">
+                        <div class="position-header">
+                            <h3 class="position-title">AIエンジニア</h3>
+                            <span class="position-type">正社員</span>
+                        </div>
+                        <div class="position-details">
+                            <div class="position-detail">
+                                <span class="position-detail-icon">📍</span>
+                                <span>東京</span>
+                            </div>
+                            <div class="position-detail">
+                                <span class="position-detail-icon">💰</span>
+                                <span>600万円〜1000万円</span>
+                            </div>
+                            <div class="position-detail">
+                                <span class="position-detail-icon">🔄</span>
+                                <span>リモート可</span>
+                            </div>
+                        </div>
+                        <p class="position-description">
+                            機械学習モデルの設計・開発・実装・運用を担当していただきます。自然言語処理や画像認識など、お客様の課題に最適なAIソリューションを提供します。最新のAI技術に精通し、実際のビジネス課題に適用できる方を求めています。
                         </p>
-                        <p class="message-text">
-                            アルフィオンでは東大生を中心に優秀なメンバーが、最新のテクノロジーを活用し、
-                            クライアントにとって最適なソリューションを提供できるよう、日々改善を重ねています
+                        <a href="#" class="position-button">詳細を見る</a>
+                    </div>
+
+                    <div class="position-card">
+                        <div class="position-header">
+                            <h3 class="position-title">フルスタックエンジニア</h3>
+                            <span class="position-type">正社員</span>
+                        </div>
+                        <div class="position-details">
+                            <div class="position-detail">
+                                <span class="position-detail-icon">📍</span>
+                                <span>東京</span>
+                            </div>
+                            <div class="position-detail">
+                                <span class="position-detail-icon">💰</span>
+                                <span>550万円〜900万円</span>
+                            </div>
+                            <div class="position-detail">
+                                <span class="position-detail-icon">🔄</span>
+                                <span>リモート可</span>
+                            </div>
+                        </div>
+                        <p class="position-description">
+                            フロントエンドからバックエンドまで、幅広い技術スタックを活用したWeb/モバイルアプリケーションの開発を担当していただきます。AIを活用したサービスの実装経験がある方、チーム開発の経験が豊富な方を歓迎します。
                         </p>
-                        <p class="message-text">
-                            アルフィオンは共に走り、新たな未来を切り開く仲間を募集しています。
+                        <a href="#" class="position-button">詳細を見る</a>
+                    </div>
+
+                    <div class="position-card">
+                        <div class="position-header">
+                            <h3 class="position-title">AIソリューションコンサルタント</h3>
+                            <span class="position-type">正社員</span>
+                        </div>
+                        <div class="position-details">
+                            <div class="position-detail">
+                                <span class="position-detail-icon">📍</span>
+                                <span>東京</span>
+                            </div>
+                            <div class="position-detail">
+                                <span class="position-detail-icon">💰</span>
+                                <span>650万円〜1100万円</span>
+                            </div>
+                            <div class="position-detail">
+                                <span class="position-detail-icon">🔄</span>
+                                <span>リモート可</span>
+                            </div>
+                        </div>
+                        <p class="position-description">
+                            お客様のビジネス課題をヒアリングし、最適なAIソリューションを提案・導入支援するコンサルティング業務を担当していただきます。技術的な知識とビジネス理解の両方を持ち、お客様との信頼関係を構築できる方を求めています。
                         </p>
+                        <a href="#" class="position-button">詳細を見る</a>
                     </div>
-                    <img src="annie-spratt-QckxruozjRg-unsplash.jpg" alt="Office Culture" class="message-image">
                 </div>
             </div>
         </section>
-        <section class="mission-vision">
-            <div class="container mission-vision-container">
-                <div class="mission-box">
-                    <div class="box-label">Mission</div>
-                    <h2 class="box-title">Redefine the Future</h2>
-                    <p class="box-text">アルフィオンが果たすべき使命は、情報技術の活用により労働生産性を向上させ、より良い未来の可能性を開くことです</p>
-                </div>
-                <div class="vision-box">
-                    <div class="box-label">Vision</div>
-                    <h2 class="box-title">From Innovation to Implementation</h2>
-                    <p class="box-text">アルフィオンは日々進化するテクノロジーをいち早く捉え、ビジネスにおける効果的な活用法を見極め、先端技術を社会に実装する存在になります</p>
-                </div>
-            </div>
-        </section>
-    
-        <section class="values">
+
+        <section class="cta-section">
             <div class="container">
-                <h2 class="section-title">アルフィオンの行動指針</h2>
-                <div class="values-grid">
-                    <div class="value-card">
-                        <h3 class="value-title">Customer First</h3>
-                        <p class="value-text">全ての仕事は顧客に価値を提供するためにある</p>
-                    </div>
-                    <div class="value-card">
-                        <h3 class="value-title">Strive for Excellence</h3>
-                        <p class="value-text">常に改善を続け、最高の状態を目指す</p>
-                    </div>
-                    <div class="value-card">
-                        <h3 class="value-title">Just Do It</h3>
-                        <p class="value-text">すぐやる、必ずやる、できるまでやる</p>
-                    </div>
-                    <div class="value-card">
-                        <h3 class="value-title">Win as a Team</h3>
-                        <p class="value-text">独りよがりにならず、周りの力を活用して大きな成果を挙げよう</p>
-                    </div>
-                    <div class="value-card">
-                        <h3 class="value-title">Adhere to Principles</h3>
-                        <p class="value-text">当たり前のことを当たり前にやる</p>
-                    </div>
-                    <div class="value-card">
-                        <h3 class="value-title">Can Do Mindset</h3>
-                        <p class="value-text">最後は根性。為せば成る</p>
-                    </div>
+                <h2 class="cta-title">一緒に働きませんか？</h2>
+                <p class="cta-description">ALFIONでは、常に新しいアイデアと情熱を持った仲間を探しています。私たちと一緒にAIと自動化の未来を創っていきましょう。</p>
+                <div class="cta-buttons">
+                    <a href="#positions" class="cta-button">募集職種を見る</a>
+                    <a href="contact.html" class="cta-button-secondary">お問い合わせ</a>
                 </div>
             </div>
         </section>
+    </main>
+
+    <div id="footer-container"></div>
     
-        <section class="positions">
-            <div class="container">
-                <h2 class="section-title">募集職種</h2>
-                <div class="position-card">
-                    <h3 class="position-title">AIエンジニア</h3>
-                    <div class="position-meta">
-                        <span>雇用形態：正社員 / 業務委託</span>
-                        <span>勤務地：東京 / リモート</span>
-                        <span>給与：応相談</span>
-                    </div>
-                    <p class="position-description">生成AI技術を活用したプロダクト開発やシステム構築を担当していただきます。最新のAI技術に触れながら、革新的なソリューションを生み出すことができます。</p>
-                    <a href="#" class="btn">カジュアル面談</a>
-                </div>
-                <div class="position-card">
-                    <h3 class="position-title">DXコンサルタント</h3>
-                    <div class="position-meta">
-                        <span>雇用形態：正社員 / 業務委託</span>
-                        <span>勤務地：東京</span>
-                        <span>給与：応相談</span>
-                    </div>
-                    <p class="position-description">クライアント企業のAI導入支援やDX推進のコンサルティングを担当していただきます。技術的な知識と共に、ビジネス視点での提案力が求められます。</p>
-                    <a href="#" class="btn">カジュアル面談</a>
-                </div>
-            </div>
-        </section>
-    
-        <section class="process">
-            <div class="container">
-                <h2 class="section-title">採用の流れ</h2>
-                <div class="process-steps">
-                    <div class="process-step">
-                        <div class="step-number">01</div>
-                        <h3>カジュアル面談</h3>
-                        <p>会社の目指す方向や業務の内容についてカジュアルにお話しさせていただきます。</p>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">02</div>
-                        <h3>書類選考</h3>
-                        <p>エントリーシートを提出していただき、書類選考を実施いたします。</p>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">03</div>
-                        <h3>面接</h3>
-                        <p>書類選考を突破された方には面接を実施させていただきます。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    
-        <section class="cta">
-            <div class="container">
-                <h2 class="cta-title">カジュアル面談は随時受付中！</h2>
-                <a href="#" class="btn btn-white">申し込みフォーム</a>
-            </div>
-        </section>
-        <footer>
-            <div class="footer-container">
-                <div class="footer-section">
-                    <p>
-                        株式会社アルフィオン<br>
-                        〒000-0000<br>
-                        東京都千代田区
-                    </p>
-                </div>
-                <div class="footer-section">
-                    <h3>サービス</h3>
-                    <ul class="footer-links">
-                        <li><a href="#services">事業紹介</a></li>
-                        <li><a href="#cases">サービス事例</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>会社情報</h3>
-                    <ul class="footer-links">
-                        <li><a href="#about">会社概要</a></li>
-                        <li><a href="#recruit">採用情報</a></li>
-                        <li><a href="#contact">お問い合わせ</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Alfion Inc. All rights reserved.</p>
-            </div>
-        </footer>
-    
-        <script>
-            // Header scroll effect
-            window.addEventListener('scroll', () => {
-                const header = document.querySelector('header');
-                if (window.scrollY > 100) {
-                    header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-                } else {
-                    header.style.boxShadow = 'none';
-                }
-            });
-    
-            // Smooth scroll for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-        </script>
-    </body>
-    </html>
+    <script src="js/common.js"></script>
+</body>
+</html>
