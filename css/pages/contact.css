@@ -1,8 +1,83 @@
+:root {
+    --primary: #7D17BE;
+    --primary-light: #9B4FD3;
+    --text: #333333;
+    --text-light: #666666;
+    --background: #FFFFFF;
+    --background-alt: #F8F8F8;
+    --border: #EEEEEE;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--background-alt);
+}
+
+/* Header styles */
+/* header and footer are loaded from common files, so these styles might need to be moved to style.css */
+/* For now, I'll keep them here to ensure the page looks the same. */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid var(--border);
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 32px;
+    width: auto;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary);
+}
+
+
 /* Main content */
 .main {
     padding-top: 120px;
     min-height: 100vh;
-    background: var(--background-alt);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
 .page-header {
@@ -117,81 +192,50 @@
 }
 
 .info-item {
-    display: flex;
-    align-items: flex-start;
     margin-bottom: 1.5rem;
-}
-
-.info-icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 1rem;
-    color: var(--primary);
-}
-
-.info-text {
-    flex: 1;
 }
 
 .info-label {
     font-weight: 500;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
 }
 
-.info-detail {
+.info-text {
     color: var(--text-light);
-    font-size: 0.95rem;
+    line-height: 1.6;
 }
 
-.social-links {
-    display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-
-.social-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: var(--background-alt);
-    border-radius: 50%;
-    color: var(--text);
-    transition: all 0.3s ease;
-}
-
-.social-link:hover {
-    background: var(--primary);
-    color: white;
-    transform: translateY(-2px);
-}
-
-.privacy-note {
+.note {
     font-size: 0.9rem;
     color: var(--text-light);
     margin-top: 2rem;
-    line-height: 1.8;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
 }
 
-/* Responsive styles */
-@media (max-width: 992px) {
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
+.note a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.note a:hover {
+    text-decoration: underline;
 }
 
 @media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+
     .page-title {
         font-size: 3rem;
     }
-    
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
     .contact-form {
         padding: 2rem;
-    }
-    
-    .submit-button {
-        width: 100%;
     }
 } 

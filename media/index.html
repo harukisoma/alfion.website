@@ -15,25 +15,7 @@
 <body>
     <a href="#main" class="skip-to-main">メインコンテンツへスキップ</a>
 
-    <header>
-        <div class="header-container">
-            <a href="/" aria-label="Alfionのホームページへ">
-                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202024-12-12%2017.29.24-dNXjP888HhN7IqHcdyB7m1hOWk5pzX.png" alt="Alfion" class="logo">
-            </a>
-            <nav aria-label="メインナビゲーション">
-                <ul class="nav-menu">
-                    <li><a href="/#services">事業紹介</a></li>
-                    <li><a href="/#cases">サービス事例</a></li>
-                    <li><a href="/#media">AI関連記事</a></li>
-                    <li><a href="/#recruit">採用情報</a></li>
-                </ul>
-            </nav>
-            <div class="header-buttons">
-                <a href="/download/" class="btn btn-outline">お役立ち資料</a>
-                <a href="/contact/" class="btn btn-primary">お問い合わせ</a>
-            </div>
-        </div>
-    </header>
+    <div id="header-container"></div>
 
     <main id="main" class="container">
         <div class="search-container">
@@ -192,82 +174,9 @@
         </div>
     </main>
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <h3>会社情報</h3>
-                <p>
-                    株式会社アルフィオン<br>
-                    〒000-0000<br>
-                    東京都千代田区
-                </p>
-            </div>
-            <div class="footer-section">
-                <h3>サービス</h3>
-                <ul class="footer-links">
-                    <li><a href="/#services">事業紹介</a></li>
-                    <li><a href="/#cases">サービス事例</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>リンク</h3>
-                <ul class="footer-links">
-                    <li><a href="/#about">会社概要</a></li>
-                    <li><a href="/#recruit">採用情報</a></li>
-                    <li><a href="/contact/">お問い合わせ</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Alfion Inc. All rights reserved.</p>
-        </div>
-    </footer>
+    <div id="footer-container"></div>
 
     <script src="/js/common.js"></script>
-    <script>
-        // 表示切り替え機能
-        document.addEventListener('DOMContentLoaded', function() {
-            const gridViewBtn = document.querySelector('.grid-view-btn');
-            const listViewBtn = document.querySelector('.list-view-btn');
-            const articlesGrid = document.querySelector('.articles-grid');
-            const articlesList = document.querySelector('.articles-list');
-            
-            gridViewBtn.addEventListener('click', function() {
-                gridViewBtn.classList.add('active');
-                listViewBtn.classList.remove('active');
-                articlesGrid.classList.remove('list-view');
-                articlesList.classList.remove('list-view');
-            });
-            
-            listViewBtn.addEventListener('click', function() {
-                listViewBtn.classList.add('active');
-                gridViewBtn.classList.remove('active');
-                articlesGrid.classList.add('list-view');
-                articlesList.classList.add('list-view');
-            });
-            
-            // タグ選択機能
-            const tags = document.querySelectorAll('.tag');
-            tags.forEach(tag => {
-                tag.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    tags.forEach(t => t.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
-            
-            // 検索機能のローディング表示サンプル
-            const searchInput = document.querySelector('.search-input');
-            searchInput.addEventListener('input', function() {
-                const searchContainer = document.querySelector('.search-container');
-                searchContainer.classList.add('loading');
-                
-                // 実際には非同期でAPIを呼び出し、結果を表示する処理を実装
-                setTimeout(() => {
-                    searchContainer.classList.remove('loading');
-                }, 1000);
-            });
-        });
-    </script>
+    <script src="/js/pages/media.js"></script>
 </body>
 </html>
